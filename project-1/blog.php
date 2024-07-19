@@ -1,6 +1,11 @@
 <?php
  $title = "Blog";
  require ('includes/header.php');
+
+
+//  if(isset($_SESSION["post-yaratildi"])) {
+//     $message = $_SESSION['post-yaratildi'];
+//  }
   ?>
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
@@ -17,6 +22,14 @@
 
         <div class="album py-5 bg-body-tertiary">
             <div class="container">
+
+        <?php if(isset($_SESSION["post-yaratildi"])): ?>
+            <div class="alert alert-success" role="alert">
+                <?= $_SESSION['post-yaratildi']; ?>
+                <?php unset($_SESSION["post-yaratildi"]) ?>
+            </div>  
+        <?php endif; ?>
+        
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <div class="col">
